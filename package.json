@@ -1,0 +1,27 @@
+{
+  "name": "k8s-playground",
+  "version": "1.0.0",
+  "description": "Simple demo application to play with kubernetes",
+  "main": "apiGateway.js",
+  "author": "Rick Dutour Geerling <rick.dutourgeerling@frontmen.nl>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-rid": "^0.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "fuse.js": "^3.4.5",
+    "helmet": "^3.21.0",
+    "morgan": "^1.9.1",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  },
+  "scripts": {
+    "start:api": "AUTH_URL=http://localhost:3001 POKEDEX_URL=http://localhost:3002 nodemon apiGateway.js",
+    "start:auth": "AUTH_SECRET=2aae6c35c94fcfb415dbe95f408b9ce91ee846ed nodemon workers/auth.js",
+    "start:pokedex": "POKEDEX_PAGE_SIZE=15 nodemon workers/pokedex.js"
+  }
+}

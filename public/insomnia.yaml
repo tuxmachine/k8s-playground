@@ -1,0 +1,161 @@
+_type: export
+__export_format: 4
+__export_date: 2019-09-18T19:24:40.004Z
+__export_source: insomnia.desktop.app:v6.6.2
+resources:
+  - _id: req_0787cb192f784602b79b16262f8ec23e
+    authentication: {}
+    body: {}
+    created: 1568833847442
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1568833847442
+    method: GET
+    modified: 1568834076529
+    name: Pokedex page
+    parameters: []
+    parentId: wrk_091cb8f03f0b4637897bd5ce72be1c0a
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ BASE_URL  }}/pokedex?page=1"
+    _type: request
+  - _id: wrk_091cb8f03f0b4637897bd5ce72be1c0a
+    created: 1568829409725
+    description: ""
+    modified: 1568829409725
+    name: K8s Playground
+    parentId: null
+    _type: workspace
+  - _id: req_bcadeb0a32594235bc9ee98a03a2c072
+    authentication: {}
+    body: {}
+    created: 1568834056043
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1568833530630.5
+    method: GET
+    modified: 1568834062320
+    name: Pokedex search name
+    parameters: []
+    parentId: wrk_091cb8f03f0b4637897bd5ce72be1c0a
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ BASE_URL  }}/pokedex?q=electric"
+    _type: request
+  - _id: req_b420a0faaa824fb691c2458a520a5acd
+    authentication: {}
+    body: {}
+    created: 1568834042522
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1568833213819
+    method: GET
+    modified: 1568834051427
+    name: Pokedex search type
+    parameters: []
+    parentId: wrk_091cb8f03f0b4637897bd5ce72be1c0a
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ BASE_URL  }}/pokedex?q=electric"
+    _type: request
+  - _id: req_4df962ac046d452098ff91085fa074af
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"username": "ash",
+        	"password": "pikachu"
+        }
+    created: 1568832580196
+    description: ""
+    headers:
+      - id: pair_fd62e70abea744e7ae2404cde9f6a8be
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1568832580196
+    method: POST
+    modified: 1568833327998
+    name: Auth
+    parameters: []
+    parentId: wrk_091cb8f03f0b4637897bd5ce72be1c0a
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ BASE_URL  }}/auth/login"
+    _type: request
+  - _id: req_59350a269b1f4d4da9ef33465c0b042b
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"token": "{% response 'body', 'req_4df962ac046d452098ff91085fa074af', 'b64::JC50b2tlbg==::46b', 'always' %}"
+        }
+    created: 1568832653199
+    description: ""
+    headers:
+      - id: pair_fd62e70abea744e7ae2404cde9f6a8be
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1568604667562.5
+    method: POST
+    modified: 1568833334357
+    name: Check token
+    parameters: []
+    parentId: wrk_091cb8f03f0b4637897bd5ce72be1c0a
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ BASE_URL  }}/auth/token_check"
+    _type: request
+  - _id: env_391876d6aab588895c83bf54f9e10d0daf6b59bf
+    color: null
+    created: 1568829410073
+    data: {}
+    dataPropertyOrder: null
+    isPrivate: false
+    metaSortKey: 1568829410074
+    modified: 1568829410073
+    name: Base Environment
+    parentId: wrk_091cb8f03f0b4637897bd5ce72be1c0a
+    _type: environment
+  - _id: jar_391876d6aab588895c83bf54f9e10d0daf6b59bf
+    cookies: []
+    created: 1568829410077
+    modified: 1568829410077
+    name: Default Jar
+    parentId: wrk_091cb8f03f0b4637897bd5ce72be1c0a
+    _type: cookie_jar
+  - _id: env_77b7c66fdd034e47acdb3ae1ba105c89
+    color: null
+    created: 1568833297778
+    data:
+      BASE_URL: http://localhost:3000
+    dataPropertyOrder:
+      "&":
+        - BASE_URL
+    isPrivate: false
+    metaSortKey: 1568833297778
+    modified: 1568833314396
+    name: Local
+    parentId: env_391876d6aab588895c83bf54f9e10d0daf6b59bf
+    _type: environment

@@ -1,0 +1,22 @@
+version: '3.4'
+services:
+  api-gateway:
+    environment:
+      AUTH_URL: http://auth-service:3001
+      POKEDEX_URL: http://pokedex-service:3002
+    build:
+      context: '.'
+    ports:
+      - '3000:3000'
+  auth-service:
+    environment:
+      AUTH_SECRET: 2aae6c35c94fcfb415dbe95f408b9ce91ee846ed
+    command: ["node", "workers/auth.js"]
+    build:
+      context: '.'
+  pokedex-service:
+    environment:
+      POKEDEX_PAGE_SIZE: 15
+    command: ["node", "workers/pokedex.js"]
+    build:
+      context: '.'
