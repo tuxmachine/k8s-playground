@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  namespace: k8s-playground
+spec:
+  rules:
+  - host: playground.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: api-gateway-service
+          servicePort: 80

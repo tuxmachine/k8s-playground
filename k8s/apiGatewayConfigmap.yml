@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-gateway-configmap
+  labels:
+    app: api-gateway-configmap
+  namespace: k8s-playground
+data:
+  AUTH_URL: http://auth-service
+  POKEDEX_URL: http://pokedex-service
